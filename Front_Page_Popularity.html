@@ -13,11 +13,100 @@
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/mobirise/css/style.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <link href="build/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="build/nv.d3.js"></script>
+    <style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+        }
+        svg text {
+            fill: white;
+        }
+        html, body, #chart1, #chart2 svg {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+        #chartZoom {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    
   
   
   
 </head>
 <body>
+    
+<script>
+
+    historicalBarChart = [
+        {
+            key: "Cumulative Return",
+            values: [
+                {
+                    "label" : "A" ,
+                    "value" : 29.765957771107
+                } ,
+                {
+                    "label" : "B" ,
+                    "value" : 0
+                } ,
+                {
+                    "label" : "C" ,
+                    "value" : 32.807804682612
+                } ,
+                {
+                    "label" : "D" ,
+                    "value" : 196.45946739256
+                } ,
+                {
+                    "label" : "E" ,
+                    "value" : 0.19434030906893
+                } ,
+                {
+                    "label" : "F" ,
+                    "value" : 98.079782601442
+                } ,
+                {
+                    "label" : "G" ,
+                    "value" : 13.925743130903
+                } ,
+                {
+                    "label" : "H" ,
+                    "value" : 5.1387322875705
+                }
+            ]
+        }
+    ];
+
+    nv.addGraph(function() {
+        var chart = nv.models.discreteBarChart()
+            .x(function(d) { return d.label })
+            .y(function(d) { return d.value })
+            .staggerLabels(true)
+            //.staggerLabels(historicalBarChart[0].values.length > 8)
+            .showValues(true)
+            .duration(250)
+            ;
+
+        d3.select('#chart1 svg')
+            .datum(historicalBarChart)
+            .call(chart);
+
+        nv.utils.windowResize(chart.update);
+        return chart;
+    });
+
+
+</script>
 <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--transparent mbr-navbar--sticky mbr-navbar--auto-collapse" id="menu-10">
     <div class="mbr-navbar__section mbr-section">
         <div class="mbr-section__container container">
@@ -90,7 +179,9 @@
         <div class="row">
             <div class="mbr-box mbr-box--fixed mbr-box--adapted">
                 <div class="mbr-box__magnet mbr-box__magnet--top-right mbr-section__left col-sm-6">
-                    <figure class="mbr-figure mbr-figure--adapted mbr-figure--caption-inside-bottom mbr-figure--full-width"><img src="assets/images/subreddit-test-histogram-653x377-72.png" class="mbr-figure__img" alt="Front Page Histogram" title="Front Page Histogram"></figure>
+                    <div id="chart1">
+    <svg></svg>
+</div>
                 </div>
                 <div class="mbr-box__magnet mbr-class-mbr-box__magnet--center-left col-sm-6 mbr-section__right">
                     <div class="mbr-section__container mbr-section__container--middle">
@@ -100,7 +191,7 @@
                         </div>
                     </div>
                     <div class="mbr-section__container mbr-section__container--middle">
-                        <div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>Explain about this image when the final one is inserted.</p></div>
+                        <div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>Explain about this image when the final one is incerted.</p></div>
                     </div>
                     
                 </div>
