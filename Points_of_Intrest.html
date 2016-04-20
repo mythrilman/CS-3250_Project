@@ -59,20 +59,20 @@
             var p = 0;
             //these datasets will be arrays of x and y values 
             //add more sets or remove them as needed
-            var KotakuInActionDataset = [];
+            var UbuntuDataset = [];
             var EverythingScienceDataset = []
             var times = []
             var counter = []
             data.forEach(function(d){
                 
                 /*
-                    Here we take the KotakuInAction and EverythingScience columns
+                    Here we take the Ubuntu and EverythingScience columns
                     from the loaded set and change them to numeric values
                     d3.csv loads everthing in as characters to begin with
                     so this is necessary and if not done the graph 
                     will be all kinds of messed up (trust me on this).
                 */
-                d.KotakuInAction = +d.KotakuInAction;
+                d.Ubuntu = +d.Ubuntu;
                 d.EverythingScience = +d.EverythingScience;
                 /*
                     Here I push whatever the value of p and d.whatever
@@ -81,7 +81,7 @@
                     for the x axis, the other thing is whatever the numeric
                     thing from the csv was that will change the appearance of the line
                 */
-                KotakuInActionDataset.push({x: p, y: d.KotakuInAction});
+                UbuntuDataset.push({x: p, y: d.Ubuntu});
                 EverythingScienceDataset.push({x: p, y: d.EverythingScience});
                 times.push(d.Date);
                 p++;
@@ -95,8 +95,8 @@
                 any number of these things can be used with commas separating them between the curly brackets
             */
             test = [{
-                values: KotakuInActionDataset,
-                key: "KotakuInAction",
+                values: UbuntuDataset,
+                key: "Ubuntu",
                 color: "#ff7f0e"
             },
                    {
@@ -312,7 +312,7 @@
                         </div>
                     </div>
                     <div class="mbr-section__container mbr-section__container--middle">
-                        <div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>Computer Science related subreddits gain traffic on Saturdays while most subreddits lose traffic.</p></div>
+                        <div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>Computer Science related subreddits gain traffic on Saturdays while most subreddits lose traffic.</p><p>Ubuntu peaked on Saturday. While EverythingScience Peaked on Monday.</p></div>
                     </div>
                     
                 </div>
