@@ -61,20 +61,20 @@
             //these datasets will be arrays of x and y values 
             //add more sets or remove them as needed
             var UbuntuDataset = [];
-            var BeAmazedDataset = []
+            var JazzDataset = []
             var times = []
             var counter = []
             data.forEach(function(d){
                 
                 /*
-                    Here we take the Ubuntu and BeAmazed columns
+                    Here we take the Ubuntu and Jazz columns
                     from the loaded set and change them to numeric values
                     d3.csv loads everthing in as characters to begin with
                     so this is necessary and if not done the graph 
                     will be all kinds of messed up (trust me on this).
                 */
                 d.Ubuntu = +d.Ubuntu;
-                d.BeAmazed = +d.BeAmazed;
+                d.Jazz = +d.Jazz;
                 /*
                     Here I push whatever the value of p and d.whatever
                     to their respective datasets
@@ -83,7 +83,7 @@
                     thing from the csv was that will change the appearance of the line
                 */
                 Ubuntu.push({x: p, y: d.Ubuntu});
-                BeAmazedDataset.push({x: p, y: d.BeAmazed});
+                JazzDataset.push({x: p, y: d.Jazz});
                 times.push(d.Date);
                 p++;
             })
@@ -101,8 +101,8 @@
                 color: "#ff7f0e"
             },
                    {
-                values: BeAmazedDataset,
-                key: "BeAmazed",
+                values: JazzDataset,
+                key: "Jazz",
                 color: "#11710e"
             }];
             
