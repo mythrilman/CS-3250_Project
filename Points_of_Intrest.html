@@ -44,8 +44,8 @@
 </head>
 <body>
     
-    <script>
-				/*Chart2*/
+        <script>
+		/*Chart2*/
         /*
         In order to start using this you need to put in in place of the html that it is replacing so that all of the css and script links have the right filepath and you must also put the csv in a place where this can access it with the filepath to the csv below
         */
@@ -56,25 +56,25 @@
         file for this. This script shoudl work with both the 
         acive user and subscriber data, If r loads in this stuff correctly perhaps you could just import to r and then export back out as a new csv to correct it for this.
         */
-        dataset = d3.csv("active_user_data_Fri-Sun.csv", function(error, data){
+        dataset = d3.csv("active_user_data_Total_Fixed.csv", function(error, data){
             var p = 0;
             //these datasets will be arrays of x and y values 
             //add more sets or remove them as needed
-            var UbuntuDataset = [];
-            var JazzDataset = []
+            var KotakuInActionDataset = [];
+            var nbaDataset = []
             var times = []
             var counter = []
             data.forEach(function(d){
                 
                 /*
-                    Here we take the Ubuntu and Jazz columns
+                    Here we take the KotakuInAction and nba columns
                     from the loaded set and change them to numeric values
                     d3.csv loads everthing in as characters to begin with
                     so this is necessary and if not done the graph 
                     will be all kinds of messed up (trust me on this).
                 */
-                d.Ubuntu = +d.Ubuntu;
-                d.Jazz = +d.Jazz;
+                d.KotakuInAction = +d.KotakuInAction;
+                d.nba = +d.nba;
                 /*
                     Here I push whatever the value of p and d.whatever
                     to their respective datasets
@@ -82,8 +82,8 @@
                     for the x axis, the other thing is whatever the numeric
                     thing from the csv was that will change the appearance of the line
                 */
-                UbuntuDataset.push({x: p, y: d.Ubuntu});
-                JazzDataset.push({x: p, y: d.Jazz});
+                KotakuInActionDataset.push({x: p, y: d.KotakuInAction});
+                nbaDataset.push({x: p, y: d.nba});
                 times.push(d.Date);
                 p++;
             })
@@ -96,13 +96,13 @@
                 any number of these things can be used with commas separating them between the curly brackets
             */
             test = [{
-                values: UbuntuDataset,
-                key: "Ubuntu",
+                values: KotakuInActionDataset,
+                key: "KotakuInAction",
                 color: "#ff7f0e"
             },
                    {
-                values: JazzDataset,
-                key: "Jazz",
+                values: nbaDataset,
+                key: "NBA",
                 color: "#11710e"
             }];
             
@@ -117,7 +117,7 @@
         chart.lines.dispatch.on("elementClick", function(evt) {
             console.log(evt);
         });
-         //The .axisLabel below is the label on the x axis, this should not need to change for our line graphs
+        //The .axisLabel below is the label on the x axis, this should not need to change for our line graphs
         chart.xAxis
             .axisLabel("Date/Time")
             .tickValues("") //this removes text from the ticks
@@ -127,10 +127,10 @@
         });
         //the .axisLabel here is the label on the y axis, change this as needed
         chart.yAxis
-            .axisLabel('Active Users')
+            .axisLabel('Users')
             .tickFormat(d3.format(',r'));
 
-        d3.select('#chart2 svg')
+        d3.select('#chart1 svg')
             .attr('perserveAspectRatio', 'xMinYMid')
             .attr('width', width)
             .attr('height', height)
@@ -152,9 +152,9 @@
             chart
                 .width(w)
                 .height(h);
-            /*here the svg tag inside div chart2 will be where this script displays there is another thing below, both will need to be changed for different tags/locations
+            /*here the svg tag inside div chart1 will be where this script displays there is another thing below, both will need to be changed for different tags/locations
             */
-            d3.select('#chart2 svg')
+            d3.select('#chart1 svg')
                 .attr('viewBox', '0 0 ' + w + ' ' + h)
                 .transition().duration(500)
                 .call(chart);
@@ -175,7 +175,7 @@
         // Resizing because of the viewbox and perserveAspectRatio settings
         // This scales the interior of the chart unlike the above
         function resizeChart() {
-            var container = d3.select('#chart2');
+            var container = d3.select('#chart1');
             var svg = container.select('svg');
             
             if (fitScreen) {
