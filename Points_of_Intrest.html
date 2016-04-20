@@ -56,25 +56,25 @@
         file for this. This script shoudl work with both the 
         acive user and subscriber data, If r loads in this stuff correctly perhaps you could just import to r and then export back out as a new csv to correct it for this.
         */
-        dataset = d3.csv("active_user_data_Total_Fixed.csv", function(error, data){
+        dataset = d3.csv("active_user_data_Fri-Sun.csv", function(error, data){
             var p = 0;
             //these datasets will be arrays of x and y values 
             //add more sets or remove them as needed
             var KotakuInActionDataset = [];
-            var nbaDataset = []
+            var BeAmazedDataset = []
             var times = []
             var counter = []
             data.forEach(function(d){
                 
                 /*
-                    Here we take the KotakuInAction and nba columns
+                    Here we take the KotakuInAction and BeAmazed columns
                     from the loaded set and change them to numeric values
                     d3.csv loads everthing in as characters to begin with
                     so this is necessary and if not done the graph 
                     will be all kinds of messed up (trust me on this).
                 */
                 d.KotakuInAction = +d.KotakuInAction;
-                d.nba = +d.nba;
+                d.BeAmazed = +d.BeAmazed;
                 /*
                     Here I push whatever the value of p and d.whatever
                     to their respective datasets
@@ -83,7 +83,7 @@
                     thing from the csv was that will change the appearance of the line
                 */
                 KotakuInActionDataset.push({x: p, y: d.KotakuInAction});
-                nbaDataset.push({x: p, y: d.nba});
+                BeAmazedDataset.push({x: p, y: d.BeAmazed});
                 times.push(d.Date);
                 p++;
             })
@@ -101,8 +101,8 @@
                 color: "#ff7f0e"
             },
                    {
-                values: nbaDataset,
-                key: "NBA",
+                values: BeAmazedDataset,
+                key: "BeAmazed",
                 color: "#11710e"
             }];
             
