@@ -60,20 +60,20 @@
             //these datasets will be arrays of x and y values 
             //add more sets or remove them as needed
             var KotakuInActionDataset = [];
-            var BeAmazedDataset = []
+            var EverythingScienceDataset = []
             var times = []
             var counter = []
             data.forEach(function(d){
                 
                 /*
-                    Here we take the KotakuInAction and BeAmazed columns
+                    Here we take the KotakuInAction and EverythingScience columns
                     from the loaded set and change them to numeric values
                     d3.csv loads everthing in as characters to begin with
                     so this is necessary and if not done the graph 
                     will be all kinds of messed up (trust me on this).
                 */
                 d.KotakuInAction = +d.KotakuInAction;
-                d.BeAmazed = +d.BeAmazed;
+                d.EverythingScience = +d.EverythingScience;
                 /*
                     Here I push whatever the value of p and d.whatever
                     to their respective datasets
@@ -82,7 +82,7 @@
                     thing from the csv was that will change the appearance of the line
                 */
                 KotakuInActionDataset.push({x: p, y: d.KotakuInAction});
-                BeAmazedDataset.push({x: p, y: d.BeAmazed});
+                EverythingScienceDataset.push({x: p, y: d.EverythingScience});
                 times.push(d.Date);
                 p++;
             })
@@ -100,8 +100,8 @@
                 color: "#ff7f0e"
             },
                    {
-                values: BeAmazedDataset,
-                key: "BeAmazed",
+                values: EverythingScienceDataset,
+                key: "EverythingScience",
                 color: "#11710e"
             }];
             
