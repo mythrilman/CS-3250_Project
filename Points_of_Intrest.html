@@ -45,7 +45,7 @@
 <body>
     
     <script>
-        /*
+        /*Chart2
         In order to start using this you need to put in in place of the html that it is replacing so that all of the css and script links have the right filepath and you must also put the csv in a place where this can access it with the filepath to the csv below
         */
         
@@ -129,7 +129,7 @@
             .axisLabel('Users')
             .tickFormat(d3.format(',r'));
 
-        d3.select('#chart1 svg')
+        d3.select('#chart2 svg')
             .attr('perserveAspectRatio', 'xMinYMid')
             .attr('width', width)
             .attr('height', height)
@@ -151,9 +151,9 @@
             chart
                 .width(w)
                 .height(h);
-            /*here the svg tag inside div chart1 will be where this script displays there is another thing below, both will need to be changed for different tags/locations
+            /*here the svg tag inside div chart2 will be where this script displays there is another thing below, both will need to be changed for different tags/locations
             */
-            d3.select('#chart1 svg')
+            d3.select('#chart2 svg')
                 .attr('viewBox', '0 0 ' + w + ' ' + h)
                 .transition().duration(500)
                 .call(chart);
@@ -174,7 +174,7 @@
         // Resizing because of the viewbox and perserveAspectRatio settings
         // This scales the interior of the chart unlike the above
         function resizeChart() {
-            var container = d3.select('#chart1');
+            var container = d3.select('#chart2');
             var svg = container.select('svg');
             
             if (fitScreen) {
