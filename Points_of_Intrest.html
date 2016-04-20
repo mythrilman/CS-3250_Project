@@ -45,6 +45,7 @@
 <body>
     
     <script>
+				/*Chart2*/
         /*
         In order to start using this you need to put in in place of the html that it is replacing so that all of the css and script links have the right filepath and you must also put the csv in a place where this can access it with the filepath to the csv below
         */
@@ -119,14 +120,14 @@
         //The .axisLabel below is the label on the x axis, this should not need to change for our line graphs
         chart.xAxis
             .axisLabel("Date/Time")
-            .tickValues("") //this removes text from the ticks
+            /*.tickValues("") //this removes text from the ticks*/
             .tickFormat(function(d){
                 //this makes it so it uses the times array at index d for //information on the x axis
                 return times[d]
         });
         //the .axisLabel here is the label on the y axis, change this as needed
         chart.yAxis
-            .axisLabel('Users')
+            .axisLabel('Active Users')
             .tickFormat(d3.format(',r'));
 
         d3.select('#chart2 svg')
