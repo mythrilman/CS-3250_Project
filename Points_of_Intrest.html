@@ -120,7 +120,7 @@
         //The .axisLabel below is the label on the x axis, this should not need to change for our line graphs
         chart.xAxis
             .axisLabel("Date/Time")
-            /*.tickValues("") //this removes text from the ticks*/
+            .tickValues("day") //this removes text from the ticks
             .tickFormat(function(d){
                 //this makes it so it uses the times array at index d for //information on the x axis
                 return times[d]
