@@ -59,21 +59,21 @@
             var p = 0;
             //these datasets will be arrays of x and y values 
             //add more sets or remove them as needed
-            var KotakuInActionDataset = [];
-            var nbaDataset = []
+            var Ubuntu = [];
+            var badhistoryDataset = []
             var times = []
             var counter = []
             data.forEach(function(d){
                 
                 /*
-                    Here we take the KotakuInAction and nba columns
+                    Here we take the Ubuntu and badhistory columns
                     from the loaded set and change them to numeric values
                     d3.csv loads everthing in as characters to begin with
                     so this is necessary and if not done the graph 
                     will be all kinds of messed up (trust me on this).
                 */
-                d.KotakuInAction = +d.KotakuInAction;
-                d.nba = +d.nba;
+                d.Ubuntu = +d.Ubuntu;
+                d.badhistory = +d.badhistory;
                 /*
                     Here I push whatever the value of p and d.whatever
                     to their respective datasets
@@ -81,8 +81,8 @@
                     for the x axis, the other thing is whatever the numeric
                     thing from the csv was that will change the appearance of the line
                 */
-                KotakuInActionDataset.push({x: p, y: d.KotakuInAction});
-                nbaDataset.push({x: p, y: d.nba});
+                Ubuntu.push({x: p, y: d.Ubuntu});
+                badhistoryDataset.push({x: p, y: d.badhistory});
                 times.push(d.Date);
                 p++;
             })
@@ -95,13 +95,13 @@
                 any number of these things can be used with commas separating them between the curly brackets
             */
             test = [{
-                values: KotakuInActionDataset,
-                key: "KotakuInAction",
+                values: Ubuntu,
+                key: "Ubuntu",
                 color: "#ff7f0e"
             },
                    {
-                values: nbaDataset,
-                key: "NBA",
+                values: badhistoryDataset,
+                key: "badhistory",
                 color: "#11710e"
             }];
             
@@ -151,9 +151,9 @@
             chart
                 .width(w)
                 .height(h);
-            /*here the svg tag inside div chart1 will be where this script displays there is another thing below, both will need to be changed for different tags/locations
+            /*here the svg tag inside div chart2 will be where this script displays there is another thing below, both will need to be changed for different tags/locations
             */
-            d3.select('#chart1 svg')
+            d3.select('#chart2 svg')
                 .attr('viewBox', '0 0 ' + w + ' ' + h)
                 .transition().duration(500)
                 .call(chart);
@@ -174,7 +174,7 @@
         // Resizing because of the viewbox and perserveAspectRatio settings
         // This scales the interior of the chart unlike the above
         function resizeChart() {
-            var container = d3.select('#chart1');
+            var container = d3.select('#chart2');
             var svg = container.select('svg');
             
             if (fitScreen) {
@@ -218,7 +218,7 @@
             .axisLabel('Voltage (v)')
             .tickFormat(d3.format(',.2f'));
 
-        d3.select('#chart2 svg')
+        d3.select('#chart1 svg')
             .attr('perserveAspectRatio', 'xMinYMid')
             .attr('width', width)
             .attr('height', height)
@@ -241,7 +241,7 @@
                 .width(w)
                 .height(h);
 
-            d3.select('#chart2 svg')
+            d3.select('#chart1 svg')
                 .attr('viewBox', '0 0 ' + w + ' ' + h)
                 .transition().duration(500)
                 .call(chart);
@@ -262,7 +262,7 @@
         // Resizing because of the viewbox and perserveAspectRatio settings
         // This scales the interior of the chart unlike the above
         function resizeChart() {
-            var container = d3.select('#chart2');
+            var container = d3.select('#chart1');
             var svg = container.select('svg');
             
             if (fitScreen) {
@@ -306,6 +306,8 @@
     }
 
 </script>
+
+
 
 <script>
 
