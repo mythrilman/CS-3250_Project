@@ -26,7 +26,7 @@
         svg text {
             fill: white;
         }
-        html, body, #chart1, #chart2 svg {
+        html, body, #chart1, #chart2, #chart3, #subChart,  svg {
             margin: 0px;
             padding: 0px;
             height: 100%;
@@ -43,6 +43,324 @@
   
 </head>
 <body>
+    <script>
+        /*Chart1
+        In order to start using this you need to put in in place of the html that it is replacing so that all of the css and script links have the right filepath and you must also put the csv in a place where this can access it with the filepath to the csv below
+        */
+        
+        
+        /*
+        The thing in quotes below is the file path to the csv
+        file for this. This script shoudl work with both the 
+        acive user and subscriber data, If r loads in this stuff correctly perhaps you could just import to r and then export back out as a new csv to correct it for this.
+        */
+        dataset = d3.csv("active_user_data_Total_Fixed.csv", function(error, data){
+            var p = 0;
+            //these datasets will be arrays of x and y values 
+            //add more sets or remove them as needed
+            var KotakuInActionDataset = [];
+            var ShitRedditSaysDataset = [];
+            var times = [];
+            var counter = [];
+            data.forEach(function(d){
+                
+                /*
+                    Here we take the KotakuInAction and EverythingScience columns
+                    from the loaded set and change them to numeric values
+                    d3.csv loads everthing in as characters to begin with
+                    so this is necessary and if not done the graph 
+                    will be all kinds of messed up (trust me on this).
+                */
+                d.KotakuInAction = +d.KotakuInAction;
+                d.ShitRedditSays = +d.ShitRedditSays;
+                /*
+                    Here I push whatever the value of p and d.whatever
+                    to their respective datasets
+                    just an incrementing numeric value that will be used
+                    for the x axis, the other thing is whatever the numeric
+                    thing from the csv was that will change the appearance of the line
+                */
+                KotakuInActionDataset.push({x: p, y: d.KotakuInAction});
+                ShitRedditSaysDataset.push({x: p, y: d.ShitRedditSays});
+                times.push(d.Date);
+                if (p == 0){
+                }
+                p++;
+            })
+            /*
+                The graphing thing below expects a series of things in the 
+                following format
+                
+                [{array of x and y, string to be used for label, color to be used in hex}]
+                
+                any number of these things can be used with commas separating them between the curly brackets
+            */
+            test1 = [{
+                values: KotakuInActionDataset,
+                key: "KotakuInAction",
+                color: "#ff7f0e"
+            },
+                   {
+                values: ShitRedditSaysDataset,
+                key: "ShitRedditSays",
+                color: "#f11f1f"
+            }];
+            
+    nv.addGraph(function() {
+        var chart1 = nv.models.lineChart();
+        var fitScreen = false;
+        var width = 600;
+        var height = 300;
+        var zoom = 1;
+        chart1.useInteractiveGuideline(true);
+
+        chart1.lines.dispatch.on("elementClick", function(evt) {
+            console.log(evt);
+        });
+        //The .axisLabel below is the label on the x axis, this should not need to change for our line graphs
+        chart1.xAxis
+            .axisLabel("Date/Time")
+            .tickValues("")
+            //.tickValues("") //this removes text from the ticks
+            .tickFormat(function(d){
+                //this makes it so it uses the times array at index d for //information on the x axis
+                return times[d]
+        });
+        //the .axisLabel here is the label on the y axis, change this as needed
+        chart1.yAxis
+            .axisLabel('Users')
+            .tickFormat(d3.format(',r'));
+
+        d3.select('#chart1 svg')
+            .attr('perserveAspectRatio', 'xMinYMid')
+            .attr('width', width)
+            .attr('height', height)
+            .datum(test1);
+
+        setChartViewBox();
+        resizeChart();
+
+        nv.utils.windowResize(resizeChart);
+
+        d3.select('#zoomIn').on('click', zoomIn);
+        d3.select('#zoomOut').on('click', zoomOut);
+
+
+        function setChartViewBox() {
+            var w = width * zoom,
+                h = height * zoom;
+
+            chart1
+                .width(w)
+                .height(h);
+            /*here the svg tag inside div chart1 will be where this script displays there is another thing below, both will need to be changed for different tags/locations
+            */
+            d3.select('#chart1 svg')
+                .attr('viewBox', '0 0 ' + w + ' ' + h)
+                .transition().duration(500)
+                .call(chart1);
+        }
+
+        function zoomOut() {
+            zoom += .25;
+            setChartViewBox();
+        }
+
+        function zoomIn() {
+            if (zoom <= .5) return;
+            zoom -= .25;
+            setChartViewBox();
+        }
+
+        // This resize simply sets the SVG's dimensions, without a need to recall the chart code
+        // Resizing because of the viewbox and perserveAspectRatio settings
+        // This scales the interior of the chart unlike the above
+        function resizeChart() {
+            var container = d3.select('#chart1');
+            var svg = container.select('svg');
+            
+            if (fitScreen) {
+                // resize based on container's width AND HEIGHT
+                var windowSize = nv.utils.windowSize();
+                svg.attr("width", windowSize.width);
+               svg.attr("height", windowSize.height);
+            } else {
+                // resize based on container's width
+                var aspect = chart1.width() / chart1.height();
+                var targetWidth = parseInt(container.style('width'));
+                svg.attr("width", targetWidth);
+                svg.attr("height", Math.round(targetWidth / aspect));
+            }
+            
+        }
+        return chart1;
+    });
+    });
+    
+
+</script>
+    
+
+    <script>
+        /*Chart1
+        In order to start using this you need to put in in place of the html that it is replacing so that all of the css and script links have the right filepath and you must also put the csv in a place where this can access it with the filepath to the csv below
+        */
+        
+        
+        /*
+        The thing in quotes below is the file path to the csv
+        file for this. This script shoudl work with both the 
+        acive user and subscriber data, If r loads in this stuff correctly perhaps you could just import to r and then export back out as a new csv to correct it for this.
+        */
+        dataset = d3.csv("subscriber_data_Total_Fixed.csv", function(error, data){
+            var p = 0;
+            //these datasets will be arrays of x and y values 
+            //add more sets or remove them as needed
+            var KotakuInActionSubDataset = [];
+            var ShitRedditSaysSubDataset = [];
+            var times = [];
+            var counter = [];
+            data.forEach(function(d){
+                
+                /*
+                    Here we take the KotakuInAction and EverythingScience columns
+                    from the loaded set and change them to numeric values
+                    d3.csv loads everthing in as characters to begin with
+                    so this is necessary and if not done the graph 
+                    will be all kinds of messed up (trust me on this).
+                */
+                d.KotakuInAction = +d.KotakuInAction;
+                d.ShitRedditSays = +d.ShitRedditSays;
+                /*
+                    Here I push whatever the value of p and d.whatever
+                    to their respective datasets
+                    just an incrementing numeric value that will be used
+                    for the x axis, the other thing is whatever the numeric
+                    thing from the csv was that will change the appearance of the line
+                */
+                KotakuInActionSubDataset.push({x: p, y: d.KotakuInAction});
+                ShitRedditSaysSubDataset.push({x: p, y: d.ShitRedditSays});
+                times.push(d.Date);
+                if (p == 0){
+                }
+                p++;
+            })
+            /*
+                The graphing thing below expects a series of things in the 
+                following format
+                
+                [{array of x and y, string to be used for label, color to be used in hex}]
+                
+                any number of these things can be used with commas separating them between the curly brackets
+            */
+            subData1 = [{
+                values: KotakuInActionSubDataset,
+                key: "KotakuInAction",
+                color: "#ff7f0e"
+            },
+                   {
+                values: ShitRedditSaysSubDataset,
+                key: "ShitRedditSays",
+                color: "#f11f1f"
+            }];
+            
+    nv.addGraph(function() {
+        var subChart = nv.models.lineChart();
+        var fitScreen = false;
+        var width = 600;
+        var height = 300;
+        var zoom = 1;
+        subChart.useInteractiveGuideline(true);
+
+        subChart.lines.dispatch.on("elementClick", function(evt) {
+            console.log(evt);
+        });
+        //The .axisLabel below is the label on the x axis, this should not need to change for our line graphs
+        subChart.xAxis
+            .axisLabel("Date/Time")
+            .tickValues("")
+            //.tickValues("") //this removes text from the ticks
+            .tickFormat(function(d){
+                //this makes it so it uses the times array at index d for //information on the x axis
+                return times[d]
+        });
+        //the .axisLabel here is the label on the y axis, change this as needed
+        subChart.yAxis
+            .axisLabel('Subscribers')
+            .tickFormat(d3.format(',r'));
+
+        d3.select('#subChart svg')
+            .attr('perserveAspectRatio', 'xMinYMid')
+            .attr('width', width)
+            .attr('height', height)
+            .datum(subData1);
+
+        setChartViewBox();
+        resizeChart();
+
+        nv.utils.windowResize(resizeChart);
+
+        d3.select('#zoomIn').on('click', zoomIn);
+        d3.select('#zoomOut').on('click', zoomOut);
+
+
+        function setChartViewBox() {
+            var w = width * zoom,
+                h = height * zoom;
+
+            subChart
+                .width(w)
+                .height(h);
+            /*here the svg tag inside div chart1 will be where this script displays there is another thing below, both will need to be changed for different tags/locations
+            */
+            d3.select('#subChart svg')
+                .attr('viewBox', '0 0 ' + w + ' ' + h)
+                .transition().duration(500)
+                .call(subChart);
+        }
+
+        function zoomOut() {
+            zoom += .25;
+            setChartViewBox();
+        }
+
+        function zoomIn() {
+            if (zoom <= .5) return;
+            zoom -= .25;
+            setChartViewBox();
+        }
+
+        // This resize simply sets the SVG's dimensions, without a need to recall the chart code
+        // Resizing because of the viewbox and perserveAspectRatio settings
+        // This scales the interior of the chart unlike the above
+        function resizeChart() {
+            var container = d3.select('#subChart');
+            var svg = container.select('svg');
+            
+            if (fitScreen) {
+                // resize based on container's width AND HEIGHT
+                var windowSize = nv.utils.windowSize();
+                svg.attr("width", windowSize.width);
+               svg.attr("height", windowSize.height);
+            } else {
+                // resize based on container's width
+                var aspect = subChart.width() / subChart.height();
+                var targetWidth = parseInt(container.style('width'));
+                svg.attr("width", targetWidth);
+                svg.attr("height", Math.round(targetWidth / aspect));
+            }
+            
+        }
+        return subChart;
+    });
+    });
+    
+
+</script>    
+    
+    
+    
+    
     
     <script>
         /*Chart2
@@ -60,9 +378,9 @@
             //these datasets will be arrays of x and y values 
             //add more sets or remove them as needed
             var UbuntuDataset = [];
-            var EverythingScienceDataset = []
-            var times = []
-            var counter = []
+            var EverythingScienceDataset = [];
+            var times = [];
+            var counter = [];
             data.forEach(function(d){
                 
                 /*
@@ -84,6 +402,8 @@
                 UbuntuDataset.push({x: p, y: d.Ubuntu});
                 EverythingScienceDataset.push({x: p, y: d.EverythingScience});
                 times.push(d.Date);
+                if (p == 0){
+                }
                 p++;
             })
             /*
@@ -106,18 +426,18 @@
             }];
             
     nv.addGraph(function() {
-        var chart = nv.models.lineChart();
+        var chart2 = nv.models.lineChart();
         var fitScreen = false;
         var width = 600;
         var height = 300;
         var zoom = 1;
-        chart.useInteractiveGuideline(true);
+        chart2.useInteractiveGuideline(true);
 
-        chart.lines.dispatch.on("elementClick", function(evt) {
+        chart2.lines.dispatch.on("elementClick", function(evt) {
             console.log(evt);
         });
         //The .axisLabel below is the label on the x axis, this should not need to change for our line graphs
-        chart.xAxis
+        chart2.xAxis
             .axisLabel("Date/Time")
             .tickValues("") //this removes text from the ticks
             .tickFormat(function(d){
@@ -125,7 +445,7 @@
                 return times[d]
         });
         //the .axisLabel here is the label on the y axis, change this as needed
-        chart.yAxis
+        chart2.yAxis
             .axisLabel('Users')
             .tickFormat(d3.format(',r'));
 
@@ -148,7 +468,7 @@
             var w = width * zoom,
                 h = height * zoom;
 
-            chart
+            chart2
                 .width(w)
                 .height(h);
             /*here the svg tag inside div chart2 will be where this script displays there is another thing below, both will need to be changed for different tags/locations
@@ -156,7 +476,7 @@
             d3.select('#chart2 svg')
                 .attr('viewBox', '0 0 ' + w + ' ' + h)
                 .transition().duration(500)
-                .call(chart);
+                .call(chart2);
         }
 
         function zoomOut() {
@@ -184,20 +504,184 @@
                svg.attr("height", windowSize.height);
             } else {
                 // resize based on container's width
-                var aspect = chart.width() / chart.height();
+                var aspect = chart2.width() / chart2.height();
                 var targetWidth = parseInt(container.style('width'));
                 svg.attr("width", targetWidth);
                 svg.attr("height", Math.round(targetWidth / aspect));
             }
             
         }
-        return chart;
+        return chart2;
     });
     });
     
 
 </script>
   
+    
+    
+    
+    
+    
+    <script>
+        /*Chart3
+        In order to start using this you need to put in in place of the html that it is replacing so that all of the css and script links have the right filepath and you must also put the csv in a place where this can access it with the filepath to the csv below
+        */
+        
+        
+        /*
+        The thing in quotes below is the file path to the csv
+        file for this. This script shoudl work with both the 
+        acive user and subscriber data, If r loads in this stuff correctly perhaps you could just import to r and then export back out as a new csv to correct it for this.
+        */
+        
+        dataset = d3.csv("active_user_data_Total_Fixed.csv", function(error, data){
+            
+            var p = 0;
+            //these datasets will be arrays of x and y values 
+            //add more sets or remove them as needed
+            var GoneWildDataset = [];
+            var times = [];
+            var counter = [];
+            
+            data.forEach(function(d){
+                
+                /*
+                    Here we take the KotakuInAction and EverythingScience columns
+                    from the loaded set and change them to numeric values
+                    d3.csv loads everthing in as characters to begin with
+                    so this is necessary and if not done the graph 
+                    will be all kinds of messed up (trust me on this).
+                */
+                
+                d.gonewild = +d.gonewild;
+                /*
+                    Here I push whatever the value of p and d.whatever
+                    to their respective datasets
+                    just an incrementing numeric value that will be used
+                    for the x axis, the other thing is whatever the numeric
+                    thing from the csv was that will change the appearance of the line
+                */
+                
+                GoneWildDataset.push({x: p, y: d.gonewild});
+                times.push(d.Date);
+                
+                if (p == 0){
+                    
+                }
+                p++;
+            })
+            /*
+                The graphing thing below expects a series of things in the 
+                following format
+                
+                [{array of x and y, string to be used for label, color to be used in hex}]
+                
+                any number of these things can be used with commas separating them between the curly brackets
+            */
+            goneWildGraphData = [{
+                values: GoneWildDataset,
+                key: "gonewild",
+                color: "#FF0000"
+            }];
+            
+    nv.addGraph(function() {
+        var chart3 = nv.models.lineChart();
+        var fitScreen = false;
+        var width = 600;
+        var height = 300;
+        var zoom = 1;
+        chart3.useInteractiveGuideline(true);
+
+        chart3.lines.dispatch.on("elementClick", function(evt) {
+            console.log(evt);
+        });
+        //The .axisLabel below is the label on the x axis, this should not need to change for our line graphs
+        chart3.xAxis
+            .axisLabel("Date/Time")
+            .tickValues("")
+            //.tickValues("") //this removes text from the ticks
+            .tickFormat(function(d){
+                //this makes it so it uses the times array at index d for //information on the x axis
+                return times[d]
+        });
+        //the .axisLabel here is the label on the y axis, change this as needed
+        chart3.yAxis
+            .axisLabel('Users')
+            .tickFormat(d3.format(',r'));
+
+        d3.select('#chart3 svg')
+            .attr('perserveAspectRatio', 'xMinYMid')
+            .attr('width', width)
+            .attr('height', height)
+            .datum(goneWildGraphData);
+
+        setChartViewBox();
+        resizeChart();
+
+        nv.utils.windowResize(resizeChart);
+
+        d3.select('#zoomIn').on('click', zoomIn);
+        d3.select('#zoomOut').on('click', zoomOut);
+
+
+        function setChartViewBox() {
+            var w = width * zoom,
+                h = height * zoom;
+
+            chart3
+                .width(w)
+                .height(h);
+            /*here the svg tag inside div chart3 will be where this script displays there is another thing below, both will need to be changed for different tags/locations
+            */
+            d3.select('#chart3 svg')
+                .attr('viewBox', '0 0 ' + w + ' ' + h)
+                .transition().duration(500)
+                .call(chart3);
+        }
+
+        function zoomOut() {
+            zoom += .25;
+            setChartViewBox();
+        }
+
+        function zoomIn() {
+            if (zoom <= .5) return;
+            zoom -= .25;
+            setChartViewBox();
+        }
+
+        // This resize simply sets the SVG's dimensions, without a need to recall the chart code
+        // Resizing because of the viewbox and perserveAspectRatio settings
+        // This scales the interior of the chart unlike the above
+        function resizeChart() {
+            var container = d3.select('#chart3');
+            var svg = container.select('svg');
+            
+            if (fitScreen) {
+                // resize based on container's width AND HEIGHT
+                var windowSize = nv.utils.windowSize();
+                svg.attr("width", windowSize.width);
+               svg.attr("height", windowSize.height);
+            } else {
+                // resize based on container's width
+                var aspect = chart3.width() / chart3.height();
+                var targetWidth = parseInt(container.style('width'));
+                svg.attr("width", targetWidth);
+                svg.attr("height", Math.round(targetWidth / aspect));
+            }
+            
+        }
+        return chart3;
+    });
+    });
+    
+
+</script>
+    
+    
+    
+    
 <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--transparent mbr-navbar--sticky mbr-navbar--auto-collapse" id="menu-32">
     <div class="mbr-navbar__section mbr-section">
         <div class="mbr-section__container container">
@@ -270,12 +754,17 @@
         <div class="row">
             <div class="mbr-box mbr-box--fixed mbr-box--adapted">
                 
-                <div class="mbr-box__magnet mbr-box__magnet--top-right mbr-section__left col-sm-6">
-                    <div id="chart1" class='with-transitions' style="padding-top: 40px; padding-bottom: 40px;">
-					<figure class="mbr-figure mbr-figure--adapted mbr-figure--caption-inside-bottom mbr-figure--full-width"><img src="assets/images/KotakuInAction_Comparison_Plot.png" class="mbr-figure__img"></figure>
+               
+                    <div id="chart1" class='with-transitions'>
     <svg></svg>
 </div>
-                </div>
+                   
+                    
+                
+                <div id="subChart" class='with-transitions'>
+    <svg></svg>
+</div>
+                        
                 <div class="mbr-box__magnet mbr-class-mbr-box__magnet--center-left col-sm-6 mbr-section__right">
                     
                     
@@ -288,7 +777,7 @@
                     </div>
                     
                     <div class="mbr-section__container mbr-section__container--middle">
-                        <div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>Subreddits often make it onto the front page of Reddit after their Active User counts have peaked and are rapidly declining. Subscriber counts appear to be unaffected by a subreddits appearance on the front page of Reddit.</p></div>
+                        <div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>One subreddit can have significantly greater subscriber numbers than another without having more active users</p></div>
                     </div>
                     
                 </div>
@@ -312,15 +801,15 @@
                         </div>
                     </div>
                     <div class="mbr-section__container mbr-section__container--middle">
-                        <div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>Computer Science related subreddits gain traffic on Saturdays while most subreddits lose traffic.</p><p>Ubuntu peaked on Saturday. While EverythingScience Peaked on Monday.</p></div>
+                        <div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>Computer Science related subreddits gain more  traffic than other subreddits on Saturdays.</p><p>Ubuntu rose more on Saturday. While EverythingScience rose on Sunday.</p></div>
                     </div>
                     
                 </div>
-                <div class="mbr-box__magnet mbr-box__magnet--top-left mbr-section__right col-sm-6">
-                    <div id="chart2" class='with-transitions' style="padding-top: 40px; padding-bottom: 40px;">
+                
+                    <div id="chart2" class='with-transitions'>
     <svg></svg>
 </div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -328,16 +817,14 @@
 
 <section class="mbr-section mbr-section--relative mbr-parallax-background" id="msg-box4-41" style="background-image: url(assets/images/blue-small-squares-texture-1920x1080-1920x1080-12.jpg);">
     
-    <div class="mbr-section__container mbr-section__container--isolated container" style="padding-top: 31px; padding-bottom: 31px;">
+    <div class="mbr-section__container mbr-section__container--isolated container" style="padding-top: 50px; padding-bottom: 50px;">
         <div class="row">
             <div class="mbr-box mbr-box--fixed mbr-box--adapted">
-                <div class="mbr-box__magnet mbr-box__magnet--top-right mbr-section__left col-sm-6">
-                    <div class="mbr-box__magnet mbr-box__magnet--top-right mbr-section__left col-sm-6">
-                    <figure class="mbr-figure mbr-figure--adapted mbr-figure--caption-inside-bottom mbr-figure--full-width"><img src="assets/images/GoneWild_Active_Users_Tuesday.png" class="mbr-figure__img"></figure>
 
-    <svg></svg>
-</div>
-                </div>
+                        <div id="chart3" class='with-transitions'>
+                            <svg></svg>
+                        </div>
+    
                 <div class="mbr-box__magnet mbr-class-mbr-box__magnet--center-left col-sm-6 mbr-section__right">
                     <div class="mbr-section__container mbr-section__container--middle">
                         <div class="mbr-header mbr-header--auto-align mbr-header--wysiwyg">

@@ -333,14 +333,14 @@
           "_name": "menu",
           "_anchor": "menu-10",
           "_params": {
-            "color": "#28324e",
-            "hamburgerColor": "#efefef",
-            "transparent": true,
-            "sticky": true,
-            "collapsed": false,
             "logo": true,
             "showBrand": true,
-            "showButtons": false
+            "showButtons": false,
+            "sticky": true,
+            "collapsed": false,
+            "transparent": true,
+            "color": "#28324e",
+            "hamburgerColor": "#efefef"
           },
           "logo": {
             "image": {
@@ -373,23 +373,23 @@
           "_name": "msg-box1",
           "_anchor": "msg-box1-11",
           "_params": {
+            "showTitle": true,
+            "showText": true,
+            "showButtons": false,
             "paddingTop": "0",
             "paddingBottom": "1",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-64.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
+            "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgVideoRadio": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "showTitle": true,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "title": "<p>Upvotes by the Numbers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; By:Team r/R</p>",
           "text": "How the Front Page of Reddit Affects Small Subreddits.",
@@ -413,26 +413,26 @@
           "_name": "msg-box3",
           "_anchor": "msg-box3-12",
           "_params": {
-            "showCaption": true,
-            "paddingTop": "1",
-            "paddingBottom": "1",
             "showTitle": true,
+            "showMeta": true,
+            "showCaption": true,
             "showText": true,
             "showButton": false,
+            "paddingTop": "1",
+            "paddingBottom": "1",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-50.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
+            "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgVideoRadio": false,
+            "darkBackground": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "showMeta": true,
-            "darkBackground": false
+            "overlayOpacity": 0.5
           },
           "title": "Question",
           "meta": "“How does a subreddits appearance on the front page affect its popularity?”",
@@ -455,25 +455,25 @@
           "_name": "msg-box4",
           "_anchor": "msg-box4-33",
           "_params": {
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false,
+            "inverse": false,
             "paddingTop": "1",
             "paddingBottom": "1",
+            "bgImageRadio": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-91.jpg",
+            "parallax": true,
+            "bgColorRadio": false,
+            "bgColor": "#f97352",
             "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgImageRadio": true,
-            "parallax": true,
-            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-91.jpg",
-            "bgColor": "#f97352",
-            "bgColorRadio": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "inverse": false,
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "media": {
             "image": {
@@ -506,13 +506,13 @@
             "paddingTop": "1",
             "paddingBottom": "1",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-98.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
             "overlay": false,
-            "overlayOpacity": 0.8,
-            "overlayColor": "#3C3C3C"
+            "overlayColor": "#3C3C3C",
+            "overlayOpacity": 0.8
           },
           "logo": {
             "image": {
@@ -560,14 +560,14 @@
           "_name": "menu",
           "_anchor": "menu-24",
           "_params": {
-            "color": "#28324e",
-            "hamburgerColor": "#efefef",
-            "transparent": true,
-            "sticky": true,
-            "collapsed": false,
             "logo": true,
             "showBrand": true,
-            "showButtons": false
+            "showButtons": false,
+            "sticky": true,
+            "collapsed": false,
+            "transparent": true,
+            "color": "#28324e",
+            "hamburgerColor": "#efefef"
           },
           "logo": {
             "image": {
@@ -600,23 +600,23 @@
           "_name": "msg-box1",
           "_anchor": "msg-box1-25",
           "_params": {
+            "showTitle": true,
+            "showText": true,
+            "showButtons": false,
             "paddingTop": "0",
             "paddingBottom": "1",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-42.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
+            "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgVideoRadio": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "showTitle": true,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "title": "<p>Upvotes by the Numbers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; By:Team r/R</p>",
           "text": "How the Front Page of Reddit Affects Small Subreddits.",
@@ -640,26 +640,26 @@
           "_name": "msg-box3",
           "_anchor": "msg-box3-26",
           "_params": {
-            "showCaption": true,
-            "paddingTop": "1",
-            "paddingBottom": "1",
             "showTitle": true,
+            "showMeta": true,
+            "showCaption": true,
             "showText": true,
             "showButton": false,
+            "paddingTop": "1",
+            "paddingBottom": "1",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-35.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
+            "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgVideoRadio": false,
+            "darkBackground": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "showMeta": true,
-            "darkBackground": false
+            "overlayOpacity": 0.5
           },
           "title": "Question",
           "meta": "“Is the influx of viewers long lasting or short lived?” ",
@@ -682,25 +682,25 @@
           "_name": "msg-box4",
           "_anchor": "msg-box4-34",
           "_params": {
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false,
+            "inverse": true,
             "paddingTop": "1",
             "paddingBottom": "1",
+            "bgImageRadio": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-23.jpg",
+            "parallax": true,
+            "bgColorRadio": false,
+            "bgColor": "#f97352",
             "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgImageRadio": true,
-            "parallax": true,
-            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-23.jpg",
-            "bgColor": "#f97352",
-            "bgColorRadio": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "inverse": true,
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "media": {
             "image": {
@@ -742,25 +742,25 @@
           "_name": "msg-box4",
           "_anchor": "msg-box4-35",
           "_params": {
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false,
+            "inverse": true,
             "paddingTop": "1",
             "paddingBottom": "1",
+            "bgImageRadio": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-44.jpg",
+            "parallax": true,
+            "bgColorRadio": false,
+            "bgColor": "#f97352",
             "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgImageRadio": true,
-            "parallax": true,
-            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-44.jpg",
-            "bgColor": "#f97352",
-            "bgColorRadio": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "inverse": true,
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "media": {
             "image": {
@@ -793,13 +793,13 @@
             "paddingTop": "1",
             "paddingBottom": "1",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-98.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
             "overlay": false,
-            "overlayOpacity": 0.8,
-            "overlayColor": "#3C3C3C"
+            "overlayColor": "#3C3C3C",
+            "overlayOpacity": 0.8
           },
           "logo": {
             "image": {
@@ -847,14 +847,14 @@
           "_name": "menu",
           "_anchor": "menu-28",
           "_params": {
-            "color": "#28324e",
-            "hamburgerColor": "#efefef",
-            "transparent": true,
-            "sticky": true,
-            "collapsed": false,
             "logo": true,
             "showBrand": true,
-            "showButtons": false
+            "showButtons": false,
+            "sticky": true,
+            "collapsed": false,
+            "transparent": true,
+            "color": "#28324e",
+            "hamburgerColor": "#efefef"
           },
           "logo": {
             "image": {
@@ -887,23 +887,23 @@
           "_name": "msg-box1",
           "_anchor": "msg-box1-29",
           "_params": {
+            "showTitle": true,
+            "showText": true,
+            "showButtons": false,
             "paddingTop": "0",
             "paddingBottom": "1",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-10.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
+            "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgVideoRadio": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "showTitle": true,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "title": "<p>Upvotes by the Numbers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; By:Team r/R</p>",
           "text": "How the Front Page of Reddit Affects Small Subreddits.",
@@ -927,26 +927,26 @@
           "_name": "msg-box3",
           "_anchor": "msg-box3-30",
           "_params": {
-            "showCaption": true,
-            "paddingTop": "1",
-            "paddingBottom": "1",
             "showTitle": true,
+            "showMeta": false,
+            "showCaption": true,
             "showText": true,
             "showButton": false,
+            "paddingTop": "1",
+            "paddingBottom": "1",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-60.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
+            "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgVideoRadio": false,
+            "darkBackground": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "showMeta": false,
-            "darkBackground": false
+            "overlayOpacity": 0.5
           },
           "title": "Conclusion",
           "meta": "",
@@ -969,25 +969,25 @@
           "_name": "msg-box4",
           "_anchor": "msg-box4-37",
           "_params": {
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false,
+            "inverse": true,
             "paddingTop": "1",
             "paddingBottom": "1",
+            "bgImageRadio": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-87.jpg",
+            "parallax": true,
+            "bgColorRadio": false,
+            "bgColor": "#f97352",
             "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgImageRadio": true,
-            "parallax": true,
-            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-87.jpg",
-            "bgColor": "#f97352",
-            "bgColorRadio": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "inverse": true,
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "media": {
             "image": {
@@ -1020,13 +1020,13 @@
             "paddingTop": "1",
             "paddingBottom": "1",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-98.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
             "overlay": false,
-            "overlayOpacity": 0.8,
-            "overlayColor": "#3C3C3C"
+            "overlayColor": "#3C3C3C",
+            "overlayOpacity": 0.8
           },
           "logo": {
             "image": {
@@ -1177,7 +1177,7 @@
           },
           "title": "Points of Intrest",
           "meta": "",
-          "text": "<p>Subreddit active user and subscriber counts are not necessarily proportional.</p><p><br></p><p>Computer Science related subreddits gain traffic on Saturdays while most subreddits lose traffic.</p><p><br></p><p>NSFW subreddits gain traffic on Sundays and in early morning hours</p><p><br></p>",
+          "text": "<p>Subreddit active user and subscriber counts are not necessarily proportional.</p><p>Computer Science related subreddits gain traffic on Saturdays while most subreddits lose traffic.</p><p><br></p><p>NSFW subreddits gain traffic on Sundays and in early morning hours</p><p><br></p>",
           "button": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">SEE ALL TEMPLATES</a>"
         },
         {
@@ -1421,14 +1421,14 @@
           "_name": "menu",
           "_anchor": "menu-36",
           "_params": {
-            "color": "#28324e",
-            "hamburgerColor": "#efefef",
-            "transparent": true,
-            "sticky": true,
-            "collapsed": false,
             "logo": true,
             "showBrand": true,
-            "showButtons": false
+            "showButtons": false,
+            "sticky": true,
+            "collapsed": false,
+            "transparent": true,
+            "color": "#28324e",
+            "hamburgerColor": "#efefef"
           },
           "logo": {
             "image": {
@@ -1461,23 +1461,23 @@
           "_name": "msg-box1",
           "_anchor": "msg-box1-37",
           "_params": {
+            "showTitle": true,
+            "showText": true,
+            "showButtons": false,
             "paddingTop": "0",
             "paddingBottom": "1",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-86.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
+            "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgVideoRadio": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "showTitle": true,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "title": "<p>Upvotes by the Numbers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; By:Team r/R</p>",
           "text": "How the Front Page of Reddit Affects Small Subreddits.",
@@ -1501,26 +1501,26 @@
           "_name": "msg-box3",
           "_anchor": "msg-box3-38",
           "_params": {
-            "showCaption": true,
-            "paddingTop": "1",
-            "paddingBottom": "0",
             "showTitle": true,
+            "showMeta": true,
+            "showCaption": true,
             "showText": true,
             "showButton": false,
+            "paddingTop": "1",
+            "paddingBottom": "0",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-0.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
+            "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgVideoRadio": false,
+            "darkBackground": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "showMeta": true,
-            "darkBackground": false
+            "overlayOpacity": 0.5
           },
           "title": "Tech Talk",
           "meta": "The Technologies We Used",
@@ -1543,25 +1543,25 @@
           "_name": "msg-box4",
           "_anchor": "msg-box4-42",
           "_params": {
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false,
+            "inverse": true,
             "paddingTop": "1",
             "paddingBottom": "1",
+            "bgImageRadio": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-63.jpg",
+            "parallax": true,
+            "bgColorRadio": false,
+            "bgColor": "#f97352",
             "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgImageRadio": true,
-            "parallax": true,
-            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-63.jpg",
-            "bgColor": "#f97352",
-            "bgColorRadio": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "inverse": true,
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "media": {
             "image": {
@@ -1603,25 +1603,25 @@
           "_name": "msg-box4",
           "_anchor": "msg-box4-43",
           "_params": {
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false,
+            "inverse": true,
             "paddingTop": "1",
             "paddingBottom": "1",
+            "bgImageRadio": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-68.jpg",
+            "parallax": true,
+            "bgColorRadio": false,
+            "bgColor": "#f97352",
             "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgImageRadio": true,
-            "parallax": true,
-            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-68.jpg",
-            "bgColor": "#f97352",
-            "bgColorRadio": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "inverse": true,
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "media": {
             "image": {
@@ -1663,25 +1663,25 @@
           "_name": "msg-box4",
           "_anchor": "msg-box4-44",
           "_params": {
+            "showTitle": true,
+            "showMeta": false,
+            "showText": true,
+            "showButtons": false,
+            "inverse": true,
             "paddingTop": "1",
             "paddingBottom": "1",
+            "bgImageRadio": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-55.jpg",
+            "parallax": true,
+            "bgColorRadio": false,
+            "bgColor": "#f97352",
             "bgVideoRadio": false,
             "bgVideo": {
               "url": "http://www.youtube.com/watch?v=uNCr7NdOJgw"
             },
-            "bgImageRadio": true,
-            "parallax": true,
-            "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-55.jpg",
-            "bgColor": "#f97352",
-            "bgColorRadio": false,
             "overlay": false,
-            "overlayOpacity": 0.5,
             "overlayColor": "#222",
-            "inverse": true,
-            "showTitle": true,
-            "showMeta": false,
-            "showText": true,
-            "showButtons": false
+            "overlayOpacity": 0.5
           },
           "media": {
             "image": {
@@ -1714,13 +1714,13 @@
             "paddingTop": "1",
             "paddingBottom": "1",
             "bgImageRadio": true,
-            "parallax": true,
             "bgImage": "@PROJECT_PATH@/assets/images/blue-small-squares-texture-1920x1080-1920x1080-98.jpg",
-            "bgColor": "#28324e",
+            "parallax": true,
             "bgColorRadio": false,
+            "bgColor": "#28324e",
             "overlay": false,
-            "overlayOpacity": 0.8,
-            "overlayColor": "#3C3C3C"
+            "overlayColor": "#3C3C3C",
+            "overlayOpacity": 0.8
           },
           "logo": {
             "image": {
